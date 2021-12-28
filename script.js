@@ -88,8 +88,9 @@ document.querySelector('.buttons').addEventListener('click', e => {
   button.blur();
 
   if (timerDate) {
-    const seconds = leftPad(Math.ceil(((new Date() - timerDate) / 1000)) %60, 2);
-    const minutes = leftPad(Math.floor(seconds / 60), 2);
+const newDate = new Date()
+    const seconds = leftPad(Math.ceil(((newDate - timerDate) / 1000)) %60, 2);
+    const minutes = leftPad(Math.floor(Math.ceil(((newDate - timerDate) / 1000)) / 60), 2);
     const el = document.querySelector('h2');
     el.textContent = `${minutes}:${seconds}`;
     el.classList.remove('hide');
