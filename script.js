@@ -105,3 +105,10 @@ function reset(keyboard) {
 }
 document.addEventListener('keydown', reset(true));
 document.querySelector('.container').addEventListener('dblclick', reset(false));
+//Service Worker
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
